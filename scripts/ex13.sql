@@ -50,5 +50,11 @@ INSERT INTO person_pet VALUES (1, 6, '2003-01-01');
 
 -- Write a query that can find all the names of pets and their owners bought after 2004.
 -- Key to this is to map the person_pet based on the purchased_on column to the pet and parent.
+SELECT name, first_name, last_name
+  FROM pet, person, person_pet
+  WHERE
+  person.id=person_pet.person_id AND
+  pet.id=person_pet.pet_id AND
+  person_pet.purchased_on > '2004-12-31';
 
 -- Write a query that can find the pets that are children of a given pet. Again look at the pet.parent to do this. It's actually easy so don't over think it.
